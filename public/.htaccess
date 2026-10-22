@@ -1,0 +1,13 @@
+Options -Indexes
+DirectoryIndex index.php
+
+<FilesMatch "^\.env|\.sql$|\.md$|\.log$">
+    Require all denied
+</FilesMatch>
+
+RedirectMatch 403 ^/src/.*$
+RedirectMatch 403 ^/templates/.*$
+RedirectMatch 403 ^/database/.*$
+
+RewriteEngine On
+RewriteRule ^api/?$ /api/index.php [L]
